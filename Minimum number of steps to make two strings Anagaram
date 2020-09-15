@@ -43,3 +43,10 @@ public:
         
     }
 };
+
+
+Time Complexity: O(N)
+Space Complexity: O(26):Constant
+
+
+Can also be used with maps, but lookup time is efficient in this approach.
