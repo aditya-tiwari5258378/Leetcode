@@ -1,0 +1,35 @@
+class Solution {
+public:
+    
+  
+    
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        
+       unordered_map <int,int> m;
+        multimap <int,int,greater<int>> m1;
+        vector <int> sol;
+        int i,j;
+        for(i=0;i<nums.size();i++)
+        {
+            m[nums[i]]++;
+        }
+       
+        for(auto it : m)
+        {
+            m1.insert({it.second,it.first});
+        }
+       
+       for(auto it : m1)
+        {
+           if(k==0){
+               break;
+           }
+            sol.push_back(it.second);
+            k--;
+          
+        }
+        return sol;
+       
+        }
+    
+};
