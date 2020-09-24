@@ -1,0 +1,52 @@
+class Solution {
+public:
+    int stoi(string s){
+        
+        stringstream str(s);
+        int x=0;
+        str>>x;
+        return x;
+    }
+    
+    string to_string(int x){
+        ostringstream strg;
+        strg<<x;
+        string s1 = strg.str();
+        return s1;
+        
+    }
+    
+    string complexNumberMultiply(string a, string b) {
+        string real1,imag1,real2,imag2;
+        
+        int i=0;
+        while(a[i]!='+'){
+            real1+=a[i++];
+        }
+        i++;
+        while(a[i]!='i'){
+            imag1+=a[i++];
+        }
+        i=0;
+        while(b[i]!='+'){
+            real2+=b[i++];
+        }
+        i++;
+        while(b[i]!='i'){
+            imag2+=b[i++];
+        }
+        
+        int real_a = stoi(real1);
+        int imag_a= stoi(imag1);
+        int real_b = stoi(real2);
+        int imag_b = stoi(imag2);
+        
+        
+       string real = to_string(real_a*real_b-imag_a*imag_b);
+        string imag= to_string(real_a*imag_b+real_b*imag_a);
+        
+        string res = real + "+" + imag + "i";
+        return res;
+
+    }
+};
