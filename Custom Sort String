@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string customSortString(string S, string T) {
+        
+        
+        int a[26]={0};
+        
+        for(int i=0;i<T.length();i++){
+            a[T[i]-'a']++;
+        }
+        
+        string res="";
+        
+        for(int i=0;i<S.length();i++){
+        
+            while(a[S[i]-'a']>0){
+            res+=S[i];
+            a[S[i]-'a']--;
+            }
+        }
+        
+        
+        
+        for(int i=0;i<26;i++){
+           while(a[i]>0){
+                res+=(i+'a');
+                a[i]--;
+            }
+        }
+       
+        return res;
+    }
+};
